@@ -1,0 +1,73 @@
+{
+  "repo": "shardmap",
+  "language": "Scala",
+  "category": "Distributed systems",
+  "goal": "Model consistent hashing, bounded loads, and shard movement.",
+  "review_model": {
+    "terms": [
+      "quorum health",
+      "lease drift",
+      "replica lag",
+      "membership churn"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "quorum health",
+      "signal": 79,
+      "slack": 31,
+      "drag": 31,
+      "confidence": 82,
+      "score": 178,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "lease drift",
+      "signal": 73,
+      "slack": 53,
+      "drag": 32,
+      "confidence": 54,
+      "score": 157,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "replica lag",
+      "signal": 70,
+      "slack": 54,
+      "drag": 22,
+      "confidence": 84,
+      "score": 212,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "membership churn",
+      "signal": 72,
+      "slack": 30,
+      "drag": 13,
+      "confidence": 92,
+      "score": 227,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "quorum health",
+      "signal": 90,
+      "slack": 22,
+      "drag": 14,
+      "confidence": 56,
+      "score": 216,
+      "lane": "ship"
+    }
+  ]
+}
